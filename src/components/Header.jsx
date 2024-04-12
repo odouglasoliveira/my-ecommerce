@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { fetchProductsList } from '../utils/fetchFunctions'
 import { Link } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+
 
 function Header() {
   const [searchedItem, setSearchedItem] = useState('');
+  const dispatch = useDispatch();
 
   const handleChange = (event) => {
     setSearchedItem(event.target.value)
@@ -13,18 +16,21 @@ function Header() {
     try {
       const products = await fetchProductsList(searchedItem);
       console.log(products)
+      dispatch({type: 'REMOVE_PRODUCTS', payload: []})
+      dispatch({type: 'ADD_PRODUCTS', payload: products})
     } catch (error) {
+      dispatch({type: 'REMOVE_PRODUCTS', payload: []})
       console.warn(error)
     }
   }
 
   return (
     <>
-      <header className="flex justify-between px-20 h-24 bg-cyan-300">
+      <header className="flex justify-between px-20 h-24 bg-cyan-800">
         <section className="flex justify-center items-center gap-4">
           <Link to={"/"} className="flex justify-center items-center gap-2">
             <img src="/logo.svg" alt="icone do e-commerce" width={40} height={40} />
-            <h1 className="text-xl font-semibold">My E-commerce</h1>
+            <h1 className="text-xl font-semibold text-white">My E-commerce</h1>
           </Link>
         </section>
         <section className="flex justify-center items-center w-96">
