@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { fetchProductsList } from '../utils/fetchFunctions'
 import { Link } from "react-router-dom";
 
@@ -19,14 +19,14 @@ function Header() {
   }
 
   return (
-    <>
+    <Fragment>
       <header className="flex justify-between px-20 h-24 bg-cyan-300">
-        <Link to={"/"} className="flex justify-center items-center gap-2">
         <section className="flex justify-center items-center gap-4">
-          <img src="/logo.svg" alt="icone do e-commerce" width={40} height={40} />
-          <h1 className="text-xl font-semibold">My E-commerce</h1>
+          <Link to={"/"} className="flex justify-center items-center gap-2">
+            <img src="/logo.svg" alt="icone do e-commerce" width={40} height={40} />
+            <h1 className="text-xl font-semibold">My E-commerce</h1>
+          </Link>
         </section>
-        </Link>
         <section className="flex justify-center items-center w-96">
           <input onChange={() => handleChange(event)} value={searchedItem} placeholder="O que você gostaria de comprar?" className="border outline-none focus:border-cyan-500 transition-colors p-2 w-full" type="text" />
           <button onClick={searchProduct} className="bg-white p-2 border hover:bg-slate-50 active:bg-slate-100 transition-colors">Buscar</button>
@@ -38,7 +38,7 @@ function Header() {
           </Link>
         </section>
       </header>
-    </>
+    </Fragment>
   )
 }
 
