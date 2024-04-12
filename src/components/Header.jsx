@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import { fetchProductsList } from '../utils/fetchFunctions'
 import { Link } from "react-router-dom";
 
@@ -19,7 +19,7 @@ function Header() {
   }
 
   return (
-    <Fragment>
+    <>
       <header className="flex justify-between px-20 h-24 bg-cyan-300">
         <section className="flex justify-center items-center gap-4">
           <Link to={"/"} className="flex justify-center items-center gap-2">
@@ -33,12 +33,11 @@ function Header() {
         </section>
         <section className="flex justify-center items-center gap-4">
           <Link to={"/cart"} className="flex justify-center items-center gap-2">
-            <p className="text-xl">Meu carrinho</p>
             <img src="/cart.svg" alt="icone do carrinho de compras" width={30} height={30} />
           </Link>
         </section>
       </header>
-    </Fragment>
+    </>
   )
 }
 

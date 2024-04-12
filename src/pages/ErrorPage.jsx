@@ -15,7 +15,7 @@ function ErrorPage() {
           <p className="font-sans">Parece que essa página não existe!</p>
           <p>Estamos te redirecionando de volta ao nosso app!!</p>
         </section>
-        <div className="loader absolute bottom-20"></div>
+        <div className="loader absolute bottom-60"></div>
       </section>
     </>
   )
